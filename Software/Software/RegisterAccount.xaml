@@ -1,0 +1,126 @@
+﻿<Window x:Class="Software.RegisterAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Software"
+        mc:Ignorable="d"
+        Title="Окно Регистрации"  
+         WindowState="Maximized"  Height="1036" Width="844">
+    <Window.Resources>
+
+
+        <Style TargetType="Button" x:Key="ButtonBoll">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Button.FontSize" Value="30"/>
+            <Setter Property="Button.FontFamily" Value="Intro"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="Black" />
+                            <GradientStop Offset="1.0" Color="Gray" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#50bFFF" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Blue" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonBoll_3">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Button.FontSize" Value="24"/>
+            <Setter Property="Button.FontFamily" Value="Times new roman"/>
+            <Setter Property="Foreground" Value="Gray" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style BasedOn="{StaticResource ButtonBoll}" x:Key="ButtonBoll_2" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TB_PBStyle">
+            <Setter Property="Control.FontSize" Value="25"/>
+            <Setter Property="Control.FontFamily" Value="Intro"/>
+            <Setter Property="Control.VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Control.Width" Value="320"/>
+            <Setter Property="Control.Height" Value="50"/>
+        </Style>
+
+    </Window.Resources>
+    <Grid >
+        <!--Контур и название-->
+        <Border>
+            <Image Source="C:\Users\79065\Desktop\images\background.jpg" Stretch="Fill"  />
+        </Border>
+
+        <Label  VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Margin="0,-900,0,0" HorizontalContentAlignment="Center" Content="ОКНО РЕГИСТРАЦИИ" 
+                Foreground="White" FontSize="40" FontFamily="Intro"/>
+        <Border VerticalAlignment="Center" HorizontalAlignment="Center" Background="White"
+                BorderBrush="#50bFFF" BorderThickness="10"  Height="850" Width="400" Opacity="0.5">
+        </Border>
+        <!--Форма-->
+        <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Height="800" Width="400">
+            <Image Width="230" Source="C:\Users\79065\Desktop\images\newuser.png" Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <!--Ввод данных-->
+            <Label Style="{StaticResource TB_PBStyle}" Margin="0,20,0,0" HorizontalContentAlignment="Center" Content="Придумайте логин: "/>
+            <TextBox x:Name="NewLogin" Style="{StaticResource TB_PBStyle}" TextWrapping="Wrap" Width="320" Height="50" />
+
+            <Label Style="{StaticResource TB_PBStyle}" Margin="0,20,0,0" HorizontalContentAlignment="Center" Content="Придумайте пароль: "/>
+            <PasswordBox Style="{StaticResource TB_PBStyle}" HorizontalAlignment="Center" x:Name="NewPassword"  
+                         Width="320" Height="50" PasswordChar="*"/>
+
+            <Label Style="{StaticResource TB_PBStyle}" Margin="0,20,0,0" HorizontalContentAlignment="Center" Content="Повторите пароль: "/>
+            <PasswordBox Style="{StaticResource TB_PBStyle}" HorizontalAlignment="Center" x:Name="RepeatPassword"  
+                         Width="320" Height="50" PasswordChar="*"/>
+
+
+            <!--Отправка данных-->
+
+            <Button x:Name="New_Account" Height="65" Width="320" Margin="0,30,0,0"
+                    Style="{StaticResource ButtonBoll}" FontSize="25"
+                    Click="Register_Click">зарегистрироваться</Button>
+
+            <Button x:Name="Login_to_Account" Height="65" Width="250" Margin="0,20,0,0"
+                    Style="{StaticResource ButtonBoll_3}" Click="Login_to_Account_Click">Уже есть аккаунт</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
