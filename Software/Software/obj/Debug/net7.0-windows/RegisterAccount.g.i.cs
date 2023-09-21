@@ -93,7 +93,7 @@ namespace Software {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Software;V1.0.0.0;component/registeraccount.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Software;component/registeraccount.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\RegisterAccount.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
